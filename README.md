@@ -2,13 +2,18 @@ const path = require('path');
 
 module.exports = {
   entry: './src/index.js', // 애플리케이션 진입점
+  mode: 'production',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
   module: {
     rules: [
-      {
+      {  //css 번들링
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+      { //이미지 파일 번들링
         test: /\.(png|jpe?g|gif)$/i,
         use: [
           {
@@ -43,6 +48,10 @@ module.exports = {
           }
         ],
       },
+      { //동영상 번들링
+        test: /\.mp4$/,
+        use: 'file-loader' // 또는 url-loader를 사용할 수도 있습니다.
+      }
     ],
   },
 };
