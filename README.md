@@ -9,7 +9,7 @@
 	//url-loader는 파일의 크기가 작을 때는 데이터 URL 형식으로 인라인화하여 번들에 포함시키므로 번들 크기를 줄이는 데 도움이 된다
 	
 	module.exports = {
-	  entry: './src/index.js',
+	  entry: './src/index.js',  // 애플리케이션 진입점
 	  output: {
 	    path: path.resolve(__dirname, 'dist'),
 	    filename: 'bundle.js'
